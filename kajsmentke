@@ -1,0 +1,10 @@
+int is_white(const char c){
+	if(isspace(c))
+	{
+		return 1;
+	}
+	else{
+		return 0;
+	}
+     return 0;
+}
