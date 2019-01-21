@@ -1,10 +1,71 @@
-int is_white(const char c){
-	if(isspace(c))
-	{
+//signs - 5 bodov
+int signs(const int a, const int b){
+	if((a>0 && b>0) || (a<0 && b<0)){
+		return 1;
+	}
+	if(a==0 || b==0){
+		return 0;
+	}
+	return -1;
+}
+
+//even - 5 bodov
+int even(const int num){
+	if(num%2==0){
 		return 1;
 	}
 	else{
 		return 0;
 	}
-     return 0;
+}
+
+//is_white - 5 bodov
+int is_white(const char c){
+	if(c==' ' || c=='\n' || c=='\t'){
+		return 1;
+	}
+	else{
+		return 0;
+	}
+}
+
+//karel_asleep - 5 bodov
+int karel_asleep(const int position){
+	if(position == '|'){
+		return 0;
+	}
+	if(position == '-'){
+		return 1;
+	}
+	return -1;
+}
+
+//is_triangle - 5 bodov
+int is_triangle(const int alpha, const int beta, const int gamma){
+	if( alpha<1 || beta<1 || gamma<1 ){
+		return -1;
+	} 
+	if((alpha+beta+gamma)== 180){
+		return 1;
+	}
+	return 0;
+}
+
+//sum_greater - 5 bodov
+int sum_greater(const int a, const int b, const int c){
+	if(a<b && a<c){
+		return b+c;
+	}
+	if(b<a && b<c){
+		return a+c;
+	}
+	return a+b;
+}
+
+//ul - 5 bodov
+char ul(const char c){
+	if(isupper(c)){
+		return tolower(c);
+	}
+	return toupper(c);	
 }
