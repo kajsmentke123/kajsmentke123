@@ -1,3 +1,20 @@
+//odd - 5 bodov
+int odd(const int num){
+	int a, mod;
+
+	mod = num%2;
+
+	if(mod == 0){
+		a = 0;
+	}
+	else{
+		a = 1;
+	}
+
+	return a;
+}
+
+
 //signs - 5 bodov
 int signs(const int a, const int b){
 	if((a>0 && b>0) || (a<0 && b<0)){
@@ -193,6 +210,61 @@ float *roots(const int a, const int b, const int c){
 	 
 	        return arr;
 	}
+
+int count_positives(const int size, const int array[]){
+	int count = 0;
+
+	for(int i = 0; i < size; i++){
+		if(array == NULL){
+			count = -1;
+		}
+		else if(array[i]>0){
+					count++;
+		}
+	}
+	return count;
+}
+
+int is_prime(const int num){
+
+	int mod = 0, count = 0;
+
+	for(int i = 1; i <= num; i++){
+		mod = num%i;
+		if(mod == 0){
+			count++;
+		}
+	}
+	if(count == 2){
+		return 1 ;
+	}
+	else{
+		return 0;
+	}
+}
+ 
+long multiples(const int below){
+
+	int mod2 = 0, mod1 = 0, sum = 0;
+
+	if(below>0 && below<=10000){
+		for(int i = 1; i < below ; i++){
+			mod1 = i % 3;
+			mod2 = i % 5;
+			if(mod1 == 0 || mod2 == 0){
+				sum += i;
+			}
+		}
+	}
+	else{
+		sum = -1;
+	}
+
+	return sum;
+}
+
+
+
 
 
 
