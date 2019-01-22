@@ -57,6 +57,30 @@ int karel_asleep(const int position){
 	return -1;
 }
 
+int karel_turn(const int degree){
+
+	int mod=0;
+	int turn=0;
+
+	if(degree >= 0){
+		mod = degree%90;
+		if(mod == 0){
+			turn = degree/90;
+		}
+		else{
+			turn = -1;
+		}
+	}
+	else{
+		turn = -1;
+	}
+
+
+	return turn;
+}
+
+
+
 //is_triangle - 5 bodov
 int is_triangle(const int alpha, const int beta, const int gamma){
 	if( alpha<1 || beta<1 || gamma<1 ){
@@ -170,6 +194,29 @@ int isPalindrome(const char* string){
 	 
 	        return(strcmp(str, string) == 0);
 	}
+
+int n_fib(const int n){
+
+	if(n<1 || n>575) {
+	return -1;
+          }
+	int first = 0, second = 1, next, c;
+	int counter = n;
+
+	for (c=0; c<=n; c++){
+	if (c<=1)
+		next =c;
+	else{
+	next= first+second;
+	first = second;
+	second = next;
+	counter--;
+
+	}
+}
+return next;
+return -1;
+}
 	
 int isFib(const int num){
 	int num1 = 0;
@@ -226,6 +273,30 @@ int count_positives(const int size, const int array[]){
 	}
 	return count;
 }
+
+int vowels_count(const char string[]){
+
+	int back = 0;
+	int count = 0;
+
+	if(string != NULL){
+		for(int i = 0; string[i]!='\0'; i++){
+			if(string[i] == 'a' || string[i] == 'e' || string[i] == 'i' || string[i] == 'o' || string[i] == 'u' || string[i] == 'y' ||
+			   string[i] == 'A' || string[i] == 'E' || string[i] == 'I' || string[i] == 'O' || string[i] == 'U' || string[i] == 'Y'){
+
+				count++;
+			}
+		}
+		back = count;
+	}
+	else{
+		back = -1;
+	}
+
+	return back;
+}
+
+
 
 int is_prime(const int num){
 
@@ -309,6 +380,36 @@ int min_2d(const int size, int array[][size]){
 
 	return value;
 }  
+
+int count_whites(const char string[]){
+	if(string == NULL){
+		return -1;
+	}
+	int len=strlen(string);
+	int count=0;
+	if(string>0){
+		for(int i=0; i<len; i++){
+			//if(isspace(string[i])){
+			if(string[i]==' ' || string[i]=='\n' || string[i]=='\t'){
+				count++;
+			}
+		}
+	}
+	return count;
+}
+
+void change_whites(char string[]){
+
+	if(string != NULL){
+		for(int i = 0;string[i]!='\0';i++){
+			if(string[i]==' ' || string[i]=='\n'){
+				string[i]='.';
+			}
+		}
+	}
+}  
+
+
 int sum_digits(const int n){
 	int num = 0, mod = 0, c, f;
 	if(n > 0){
@@ -480,6 +581,7 @@ double median(int count, double pole[]){
 
 	return median;
 }
+
 
 
 
