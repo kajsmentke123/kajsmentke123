@@ -309,6 +309,42 @@ int min_2d(const int size, int array[][size]){
 
 	return value;
 }  
+int sum_digits(const int n){
+	int num = 0, mod = 0, c, f;
+	if(n > 0){
+		num = 1;
+		for(int i = 0; i < n; i++){
+			if(i > 1 && i <= 5){
+				mod = num;
+			}
+			if(i>5 && i < 15){
+				mod = 0;
+				c = num;
+				while(f != 2){
+					mod += c%10;
+					c=c/10;
+					f++;
+				}
+			}
+			if(i>14){
+				mod = 0;
+				c = num;
+				while(f != 3){
+					mod += c%10;
+					c=c/10;
+					f++;
+				}
+			}
+			f = 0;
+			num = num + mod;
+		}
+	}
+	else{
+		num = 0;
+	}
+
+	return num;
+}
 
 int count_leap_year(const int size, const int array[]){
 	int count = 0;
@@ -396,6 +432,54 @@ void human(int c){
 	printf("%d rok %d mesiac %d den %d hodina %d minuta %d sekunda", rok, mesiac, den, hodina, minuta, sekunda);
  } 
 
+void worker(int a, int b){
+
+	int mod;
+
+	for(int i = a+1; i < b; i++){
+		mod = i%7;
+		if(mod == 3 || mod == 2){
+			printf("%d\n",i);
+		}
+	}
+}
+
+void bubbleSort(double arr[], int n){
+   int i, j, swap;
+   for (i = 0; i < n-1; i++){
+       for (j = 0; j < n-i-1; j++){
+           if (arr[j] > arr[j+1]) {
+        	   swap = arr[j];
+        	   arr[j]   = arr[j+1];
+        	   arr[j+1] = swap;
+           }
+       }
+   }
+}
+
+double median(int count, double pole[]){
+	int mod,num;
+	double median;
+
+	bubbleSort(pole,count);
+
+	for(int i = 0;i < count; i++){
+			printf("%f\n",pole[i]);
+	}
+
+	mod=count%2;
+
+	if(mod == 0){
+		num = count / 2;
+		median = (pole[num-1]+pole[num])/2;
+	}
+	else{
+		num = count/2;
+		median = pole[num];
+	}
+
+	return median;
+}
 
 
 
